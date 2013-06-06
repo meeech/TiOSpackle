@@ -1,39 +1,28 @@
-// This is a test harness for your module
-// You should do something interesting in this harness 
-// to test out the module and to provide instructions 
-// to users on how to use it by example.
+require('com.meeech.tiospackle');
 
-
-// open a single window
 var win = Ti.UI.createWindow({
 	backgroundColor:'white'
 });
-var label = Ti.UI.createLabel();
-win.add(label);
+
 win.open();
 
-// TODO: write your module tests here
-var TiOSpackle = require('com.meeech.tiospackle');
-Ti.API.info("module is => " + TiOSpackle);
+var tint = Ti.UI.createButton({
+  title: 'Tint Toolbar!'
+  , style: Ti.UI.iPhone.SystemButtonStyle.DONE
+});
 
-label.text = TiOSpackle.example();
+var toolbar = Ti.UI.iOS.createToolbar({
+  items:[tint],
+  // tintColor: '#0f0',
+  bottom:0,
+  borderTop:true,
+  borderBottom:false
+});
 
-Ti.API.info("module exampleProp is => " + TiOSpackle.exampleProp);
-TiOSpackle.exampleProp = "This is a test value";
+win.add(toolbar);
 
-if (Ti.Platform.name == "android") {
-	var proxy = TiOSpackle.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
-
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
-}
+tint.addEventListener('click', function(e) {
+	console.log( '->Tint toolbar' );
+	toolbar.tintColor = '#0f0';	
+});
 

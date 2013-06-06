@@ -11,6 +11,7 @@
 // How to add a Framework (example)
 //
 // OTHER_LDFLAGS=$(inherited) -framework Foo
+OTHER_LDFLAGS=$(inherited) -ObjC
 //
 // Adding a framework for a specific version(s) of iPhone:
 //
@@ -21,6 +22,7 @@
 // How to add a compiler define:
 //
 // OTHER_CFLAGS=$(inherited) -DFOO=1
+OTHER_CFLAGS=$(inherited) -DUSE_TI_UIIOSTOOLBAR
 //
 //
 // IMPORTANT NOTE: always use $(inherited) in your overrides
